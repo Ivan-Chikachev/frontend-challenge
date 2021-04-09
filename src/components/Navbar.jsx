@@ -3,16 +3,17 @@ import {NavLink} from "react-router-dom";
 
 const Navbar = () => (
     <>
-        <nav className="navbar navbar-expand-sm navbar-dark bg-primary">
-            <div className='navbar-brand'>Список дел</div>
-            <ul className="navbar-nav nav">
-                <li className="nav-item">
-                    <NavLink className="nav-link" exact to='/page'>Заметки</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink className="nav-link" to='/about'>Информация</NavLink>
-                </li>
-            </ul>
+        <nav className="navbar">
+            <div className="container">
+                <ul className="navbar__items">
+                    <li className="navbar__item">
+                        <NavLink className="navbar__link" exact to='/cats'>Все котики</NavLink>
+                    </li>
+                    <li className="navbar__item">
+                        <NavLink className="navbar__link" to='/favorite'>Любимые котики</NavLink>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </>
 

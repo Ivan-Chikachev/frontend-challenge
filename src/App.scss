@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e5e5e5;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+ul li {
+  list-style: none;
+}
+
+
+// ------ ОБОЛОЧКА -----//
+.wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+// ------ ПЕРЕМЕННЫЕ -----//
+$mw: 1170;
+$md1: $mw+12;
+$md2: 992.98;
+$md3: 767.98;
+
+// ------ СЕТКА -----//
+.container {
+  max-width: $mw+px;
+  width: 100%;
+  margin: 0 auto;
+  @media (max-width: $md1+px) {
+    max-width: 970px;
+  }
+  @media (max-width: $md2+px) {
+    max-width: 750px;
+  }
+  @media (max-width: $md3+px) {
+    max-width: 550px;
+    padding: 0 10px;
+  }
+}
+
+// ------ Navbar -----//
+
+.navbar{
+  height: 65px;
+  width: 100%;
+  background: #2196F3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
+
+  &__items{
+    display: flex;
+    text-align: center;
+    justify-content: flex-start;
+  }
+  &__item{
+
+  }
+  &__link{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 23px 20px;
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+// ------ Gallery -----//
+
+.gallery{
+  display: flex;
+  flex-wrap: wrap;
+  &__item{
+    flex-basis: 225px;
+    margin: 2% 2% 24px 2%;
+  }
+  &__img{
+    object-fit: cover;
+    width: 225px;
+    height: 225px;
+  }
+}
