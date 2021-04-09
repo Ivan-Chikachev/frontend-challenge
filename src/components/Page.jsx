@@ -1,14 +1,10 @@
-import Profile from "./Profile";
 
 
-const Page = () => {
-
+export default () => {
 
     return (
-        <div className="content__page page">
-            <Profile />
-            {/*<PostsContainer />*/}
+        <div>
+
         </div>
     );
 };
-export default Page;
