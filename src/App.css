@@ -71,12 +71,15 @@ button:active, button:focus {
   flex-wrap: wrap;
   gap: 1.5rem;
   margin: 102px 0 0;
-  justify-content: space-between; }
+  justify-content: flex-start;}
+
   .gallery__item {
     margin: 15px 0 0;
     position: relative;
-    width: 225px;
-    height: 225px; }
+    max-width: 225px;
+    height: 225px;
+  flex: 1 1 225px;
+  }
     .gallery__item:hover {
       box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.24), 0px 9px 18px rgba(0, 0, 0, 0.18); }
   .gallery__img {
@@ -93,7 +96,14 @@ button:active, button:focus {
     width: 40px;
     height: 36px;
     background: url("https://i.ibb.co/HP75T77/Vector-1.png"); }
-    .gallery__btn.active {
+.gallery__btn:hover{
+  background: url("https://i.ibb.co/VtrQm8X/Vector.png");
+}
+.gallery__btn:active{
+  background: url("https://i.ibb.co/VtrQm8X/Vector.png");
+  opacity: .4;
+}
+.gallery__btn.active {
       background: url("https://i.ibb.co/VtrQm8X/Vector.png"); }
 
 .hover-block {

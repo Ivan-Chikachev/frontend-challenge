@@ -1,13 +1,14 @@
 import React, {useReducer} from 'react';
 import {FavoriteReducer} from "./FavoriteReducer";
-import {FETCHING, GET_FAVORITE_CATS } from "../types";
+import {DELETE_CAT, FETCHING, GET_FAVORITE_CATS, SET_TOTAL_COUNT} from "../types";
 import {catsAPI} from "../../api/api";
 import {FavoriteContext} from "./FavoriteContext";
 
 export const FavoriteState = (props) => {
     let initialState = {
         favoriteCats: [],
-        fetching: true
+        fetching: true,
+        totalCount: 0
     };
     const [state, dispatch] = useReducer(FavoriteReducer, initialState)
 
@@ -20,27 +21,37 @@ export const FavoriteState = (props) => {
         type: FETCHING,
         fetching
     })
+    const setTotalCount = (count) => ({
+        type: SET_TOTAL_COUNT,
+        count
+    })
+    const deleteCatState = (id) => ({
+        type: DELETE_CAT,
+            id
+    })
 
     const setFetching = (fetching) => {
         dispatch(updateFetching(fetching))
     }
 
-    const getFavoriteCats= () => {
-
-        catsAPI.getFavoriteCats().then(response => {
+    const getFavoriteCats= (page) => {
+        catsAPI.getFavoriteCats(page).then(response => {
             dispatch(setCats(response.data));
-
+            dispatch(setTotalCount(response.headers['pagination-count']))
         }).finally(()=> {
             dispatch(updateFetching(false))
         });
     }
 
+
+
     const setFavoriteCat = (id) => {
         catsAPI.setFavoriteCat(id)
-        console.log(id)
     }
+
     const deleteCat = (id) => {
         catsAPI.deleteCat(id)
+        dispatch(deleteCatState(id))
     }
 
     return (

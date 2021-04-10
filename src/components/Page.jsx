@@ -15,7 +15,6 @@ export default () => {
         }
     }, [state.fetching])
 
-
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler)
         return function () {
@@ -23,22 +22,21 @@ export default () => {
         }
     }, [state.fetching])
 
+
     const scrollHandler = e => {
         if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
             setFetching(true)
         }
     }
-
-
-
+    console.log('ren')
     return (
         <div className="container">
             <div className="gallery">
                 {state.cats.map(item =>
                     <div className="gallery__item" key={item.id}>
-                        <div className='hover-block'></div>
+                        <div className="hover-block"></div>
                         <img className="gallery__img"  src={item.url} alt=""/>
-                         <button className="gallery__btn" onClick={()=>setFavoriteCat(item.id)}></button>
+                        <button className="gallery__btn" onClick={()=>setFavoriteCat(item.id)}></button>
                     </div>
                 )}
             </div>
