@@ -10,17 +10,17 @@ function App() {
     return (
         <div className="wrapper">
             <FavoriteState>
-            <PageState>
-                <BrowserRouter>
-                    <Navbar/>
-                    <div>
-                        <Switch>
-                            <Route path={'/'} exact component={Page}/>
-                            <Route path={'/favorite'} exact component={Favorite}/>
-                        </Switch>
-                    </div>
-                </BrowserRouter>
-            </PageState>
+                <PageState>
+                    <BrowserRouter>
+                        <Navbar/>
+                        <div>
+                            <Switch>
+                                <Route path={'/'} exact component={Page}/>
+                                <Route path={'/favorite'} exact component={Favorite}/>
+                            </Switch>
+                        </div>
+                    </BrowserRouter>
+                </PageState>
             </FavoriteState>
         </div>
     );

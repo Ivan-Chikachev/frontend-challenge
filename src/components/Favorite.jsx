@@ -34,9 +34,9 @@ export default () => {
         <div className="container">
             <div className="gallery">
                 {state.favoriteCats.map(item =>
-                    <div className="gallery__item" >
+                    <div className="gallery__item" key={item.id}>
                         <div className='hover-block'></div>
-                        <img className="gallery__img" key={item.id} src={item.url} alt=""/>
+                        <img className="gallery__img"  src={item.url} alt=""/>
                         <button className="gallery__btn active"></button>
                     </div>
                 )}

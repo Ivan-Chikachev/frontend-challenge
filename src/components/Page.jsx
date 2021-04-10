@@ -6,7 +6,6 @@ export default () => {
     const {state, getCats, setFetching} = useContext(PageContext);
     const [currentPage, setCurrentPage] = useState(1)
 
-    console.log(state.cats)
 
     useEffect(() => {
         if (state.fetching) {
@@ -29,14 +28,18 @@ export default () => {
         }
     }
 
+    const log = (id)=> {
+        console.log(id)
+    }
+
     return (
         <div className="container">
             <div className="gallery">
                 {state.cats.map(item =>
-                    <div className="gallery__item" >
+                    <div className="gallery__item" key={item.id}>
                         <div className='hover-block'></div>
-                        <img className="gallery__img" key={item.id} src={item.url} alt=""/>
-                         <button className="gallery__btn"></button>
+                        <img className="gallery__img"  src={item.url} alt=""/>
+                         <button className="gallery__btn" onClick={()=>log(item.id)}></button>
                     </div>
                 )}
             </div>
