@@ -16,18 +16,22 @@ export const PageState = (props) => {
         type: GET_CATS,
         cats
     })
-    const setFetching = (fetching) => ({
+    const updateFetching = (fetching) => ({
         type: FETCHING,
         fetching
     })
+
+    const setFetching = (fetching) => {
+        dispatch(updateFetching(fetching))
+    }
 
     const getCats = () => {
 
         catsAPI.getCats().then(response => {
             dispatch(setCats(response.data));
+
         }).finally(()=> {
-            setFetching(false)
-            console.log(state.fetching)
+            dispatch(updateFetching(false))
         });
 
     }

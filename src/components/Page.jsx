@@ -6,17 +6,14 @@ export default () => {
     const {state, getCats, setFetching} = useContext(PageContext);
     const [currentPage, setCurrentPage] = useState(1)
 
-    console.log(state.fetching)
+    console.log(state.cats)
 
     useEffect(() => {
         if (state.fetching) {
-
             getCats(currentPage)
             setCurrentPage(prevState => prevState + 1)
-
         }
     }, [state.fetching])
-
 
 
     useEffect(() => {
@@ -24,7 +21,7 @@ export default () => {
         return function () {
             document.removeEventListener('scroll', scrollHandler)
         }
-    }, [])
+    }, [state.fetching])
 
     const scrollHandler = e => {
         if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) < 100) {
@@ -36,8 +33,10 @@ export default () => {
         <div className="container">
             <div className="gallery">
                 {state.cats.map(item =>
-                    <div className="gallery__item" key={item.id}>
-                        <img className="gallery__img" src={item.url} alt=""/>
+                    <div className="gallery__item" >
+                        <div className='hover-block'></div>
+                        <img className="gallery__img" key={item.id} src={item.url} alt=""/>
+                         <button className="gallery__btn"></button>
                     </div>
                 )}
             </div>

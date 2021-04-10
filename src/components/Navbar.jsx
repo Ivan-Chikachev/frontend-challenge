@@ -7,10 +7,10 @@ const Navbar = () => (
             <div className="container">
                 <ul className="navbar__items">
                     <li className="navbar__item">
-                        <NavLink className="navbar__link" exact to='/cats'>Все котики</NavLink>
+                        <NavLink className="navbar__link" exact to='/'>Все котики</NavLink>
                     </li>
                     <li className="navbar__item">
-                        <NavLink className="navbar__link" to='/favorite'>Любимые котики</NavLink>
+                        <NavLink className="navbar__link " to='/favorite'>Любимые котики</NavLink>
                     </li>
                 </ul>
             </div>
