@@ -7,18 +7,24 @@ const instance = axios.create({
     },
 });
 
+// 4a465c2b-d82f-4e32-ab3e-13974327cf8a
+
     export const catsAPI = {
         getCats(currentPage) {
             return instance
                 .get(`images/search?limit=15&page=${currentPage}`)
         },
-        getFavoriteCats() {
+        getFavoriteCats(currentPage) {
             return instance
-                .get(`favourites`)
+                .get(`favourites/?limit=100&page=72`)
         },
-        setFavoriteCat() {
+        setFavoriteCat(id) {
             return instance
-                .post(`favourites` , {"image_id": "3ar"})
+                .post(`favourites` , {"image_id": id})
+        },
+        deleteCat(id) {
+            return instance
+                .delete(`favourites/${id}`)
         },
 
     };

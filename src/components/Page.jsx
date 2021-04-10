@@ -1,11 +1,12 @@
 import {useContext, useEffect, useState} from "react";
 import {PageContext} from "../context/Page/PageContext";
+import {FavoriteContext} from "../context/Favorite/FavoriteContext";
 
 export default () => {
 
     const {state, getCats, setFetching} = useContext(PageContext);
+    const {setFavoriteCat} = useContext(FavoriteContext);
     const [currentPage, setCurrentPage] = useState(1)
-
 
     useEffect(() => {
         if (state.fetching) {
@@ -28,9 +29,7 @@ export default () => {
         }
     }
 
-    const log = (id)=> {
-        console.log(id)
-    }
+
 
     return (
         <div className="container">
@@ -39,7 +38,7 @@ export default () => {
                     <div className="gallery__item" key={item.id}>
                         <div className='hover-block'></div>
                         <img className="gallery__img"  src={item.url} alt=""/>
-                         <button className="gallery__btn" onClick={()=>log(item.id)}></button>
+                         <button className="gallery__btn" onClick={()=>setFavoriteCat(item.id)}></button>
                     </div>
                 )}
             </div>

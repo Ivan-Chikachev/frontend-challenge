@@ -6,7 +6,7 @@ import {FavoriteContext} from "./FavoriteContext";
 
 export const FavoriteState = (props) => {
     let initialState = {
-        favoriteCats: [{ id: "438", url: "https://cdn2.thecatapi.com/images/438.jpg", width: 500, height: 333}],
+        favoriteCats: [],
         fetching: true
     };
     const [state, dispatch] = useReducer(FavoriteReducer, initialState)
@@ -33,12 +33,19 @@ export const FavoriteState = (props) => {
         }).finally(()=> {
             dispatch(updateFetching(false))
         });
-
     }
-    catsAPI.setFavoriteCat()
+
+    const setFavoriteCat = (id) => {
+        catsAPI.setFavoriteCat(id)
+        console.log(id)
+    }
+    const deleteCat = (id) => {
+        catsAPI.deleteCat(id)
+    }
+
     return (
         <FavoriteContext.Provider value={{
-            state, getFavoriteCats, setFetching
+            state, getFavoriteCats, setFetching, setFavoriteCat, deleteCat
         }}>
             {props.children}
         </FavoriteContext.Provider>
