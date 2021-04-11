@@ -7,7 +7,6 @@ const instance = axios.create({
     },
 });
 
-
 export const catsAPI = {
         getCats(currentPage) {
             return instance
@@ -17,6 +16,10 @@ export const catsAPI = {
             return instance
                 .get(`favourites/?limit=15&page=${currentPage}`)
         },
+        getFavoriteCatsForSet()  {
+             return instance
+                   .get(`favourites/`)
+             },
         setFavoriteCat(id) {
             return instance
                 .post(`favourites` , {"image_id": id})

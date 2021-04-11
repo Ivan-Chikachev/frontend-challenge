@@ -50,6 +50,13 @@ export const FavoriteState = (props) => {
 
     const setFavoriteCat = (id) => {
         catsAPI.setFavoriteCat(id)
+        setTimeout(()=> {
+            catsAPI.getFavoriteCatsForSet().then(response => {
+                dispatch(setCat(response.data[response.data.length - 1]))
+            }).catch((err)=>{
+                console.log(err)})
+        }, 500)
+
     }
 
     const deleteCat = (id) => {

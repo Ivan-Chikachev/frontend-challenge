@@ -11,15 +11,13 @@ function App() {
         <div className="wrapper">
             <FavoriteState>
                 <PageState>
-                    <BrowserRouter>
                         <Navbar/>
                         <div>
                             <Switch>
-                                <Route path={'frontend-challenge/'} exact component={Page}/>
-                                <Route path={'frontend-challenge/favorite'} exact component={Favorite}/>
+                                <Route path={'/'} exact component={Page}/>
+                                <Route path={'/favorite'} exact component={Favorite}/>
                             </Switch>
                         </div>
-                    </BrowserRouter>
                 </PageState>
             </FavoriteState>
         </div>

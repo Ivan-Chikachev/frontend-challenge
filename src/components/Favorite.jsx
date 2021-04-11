@@ -35,7 +35,7 @@ export default () => {
                     <div className="gallery__item" key={item.id}>
                         <div className='hover-block'></div>
                         <img className="gallery__img"  src={item.image.url} alt=""/>
-                        <button onClick={()=>deleteCat(item.id)} className="gallery__btn active"></button>
+                        <button onClick={()=>deleteCat(item.id)} className="gallery__btn active" title="Убрать котика"></button>
                     </div>
                 )}
             </div>

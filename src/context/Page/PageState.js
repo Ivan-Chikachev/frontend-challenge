@@ -1,6 +1,6 @@
 import React, {useReducer} from 'react';
 import {PageReducer} from "./PageReducer";
-import {FETCHING, GET_CATS, SET_CATS} from "../types";
+import {FETCHING, GET_CATS} from "../types";
 import {catsAPI} from "../../api/api";
 import {PageContext} from "./PageContext";
 
@@ -12,7 +12,7 @@ export const PageState = (props) => {
     const [state, dispatch] = useReducer(PageReducer, initialState)
 
 
-    const setCats = (cats) => ({
+    const getCatsState = (cats) => ({
         type: GET_CATS,
         cats
     })
@@ -28,7 +28,7 @@ export const PageState = (props) => {
     const getCats = () => {
 
         catsAPI.getCats().then(response => {
-            dispatch(setCats(response.data));
+            dispatch(getCatsState(response.data));
 
         }).finally(()=> {
             dispatch(updateFetching(false))

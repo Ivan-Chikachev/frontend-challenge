@@ -36,7 +36,9 @@ export default () => {
                     <div className="gallery__item" key={item.id}>
                         <div className="hover-block"></div>
                         <img className="gallery__img"  src={item.url} alt=""/>
-                        <button className="gallery__btn" onClick={()=>setFavoriteCat(item.id)}></button>
+                        <button className="gallery__btn" onClick={()=>setFavoriteCat(item.id)} title="Добавить котика">
+
+                        </button>
                     </div>
                 )}
             </div>
