@@ -12,6 +12,8 @@ export const FavoriteReducer = (state, action) => {
             return {...state, favoriteCats: [...state.favoriteCats, action.cat]};
         case DELETE_CAT:
             return {...state, favoriteCats: state.favoriteCats.filter(item => item.id !== action.id)};
+            //  Удалям из массива картинку с помощью filter
+
         default:
             return state;
     }

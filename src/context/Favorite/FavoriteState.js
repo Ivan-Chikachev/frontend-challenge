@@ -12,7 +12,6 @@ export const FavoriteState = (props) => {
     };
     const [state, dispatch] = useReducer(FavoriteReducer, initialState)
 
-
     const getCats = (cats) => ({
         type: GET_FAVORITE_CATS,
         cats
@@ -43,8 +42,13 @@ export const FavoriteState = (props) => {
         catsAPI.getFavoriteCats(page).then(response => {
             dispatch(getCats(response.data));
             dispatch(setTotalCount(response.headers['pagination-count']))
+            // Добавляем данные favourites images
+            // Получаем количество элементов - сколько всего
+
         }).finally(()=> {
-            dispatch(updateFetching(false))
+            setFetching(false)
+            // Останавливаем подгруз данных
+
         });
     }
 
@@ -53,16 +57,20 @@ export const FavoriteState = (props) => {
         setTimeout(()=> {
             catsAPI.getFavoriteCatsForSet().then(response => {
                 dispatch(setCat(response.data[response.data.length - 1]))
+                // Добавлям в локальный state последний элемент массива из favourites
+
             }).catch((err)=>{
                 console.log(err)})
         }, 500)
-
+        //
+        // Было необходимо подождать 0.5 сек, чтобы корректно отпрвить post запрос, и получить данные
     }
 
     const deleteCat = (id) => {
         catsAPI.deleteCat(id)
         dispatch(deleteCatState(id))
     }
+    //Удаляем картинку локально и делаем delete запрос
 
     return (
         <FavoriteContext.Provider value={{

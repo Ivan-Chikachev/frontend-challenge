@@ -8,26 +8,26 @@ const instance = axios.create({
 });
 
 export const catsAPI = {
-        getCats(currentPage) {
-            return instance
-                .get(`images/search?limit=15&page=${currentPage}`)
-        },
-        getFavoriteCats(currentPage) {
-            return instance
-                .get(`favourites/?limit=15&page=${currentPage}`)
-        },
-        getFavoriteCatsForSet()  {
-             return instance
-                   .get(`favourites/`)
-             },
-        setFavoriteCat(id) {
-            return instance
-                .post(`favourites` , {"image_id": id})
-        },
-        deleteCat(id) {
-            return instance
-                .delete(`favourites/${id}`)
-        },
+    getCats(currentPage) {
+        return instance
+            .get(`images/search?limit=15&page=${currentPage}`)
+    },
+    getFavoriteCats(currentPage) {
+        return instance
+            .get(`favourites/?limit=15&page=${currentPage}`)
+    },
+    getFavoriteCatsForSet() {
+        return instance
+            .get(`favourites/`) // Запрос всех понравившихся котиков для загрузки в локальный state последнего элемента
+    },
+    setFavoriteCat(id) {
+        return instance
+            .post(`favourites`, {"image_id": id})
+    },
+    deleteCat(id) {
+        return instance
+            .delete(`favourites/${id}`)
+    },
 };
 
 

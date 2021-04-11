@@ -14,6 +14,8 @@ export default () => {
             setCurrentPage(prevState => prevState + 1)
         }
     }, [state.fetching])
+    // Делаем запрос картинок с текущей страницей, если fetching: true
+    // Затем добавляем текущей странице +1
 
     useEffect(() => {
         document.addEventListener('scroll', scrollHandler)
@@ -21,6 +23,7 @@ export default () => {
             document.removeEventListener('scroll', scrollHandler)
         }
     }, [state.fetching])
+    // Добавляем и удаляем слушателя документу при изменении fetching
 
 
     const scrollHandler = e => {
@@ -28,6 +31,8 @@ export default () => {
             setFetching(true)
         }
     }
+    // Функция для определения уровня скролла.
+    // При setFetching: true - происходит подгрузка данных
 
     return (
         <div className="container">
@@ -37,7 +42,6 @@ export default () => {
                         <div className="hover-block"></div>
                         <img className="gallery__img"  src={item.url} alt=""/>
                         <button className="gallery__btn" onClick={()=>setFavoriteCat(item.id)} title="Добавить котика">
-
                         </button>
                     </div>
                 )}

@@ -67,11 +67,13 @@ $md3: 767.98;
   background: #2196F3;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.24);
   overflow: hidden;
+
   &__items {
     display: flex;
     text-align: center;
     justify-content: flex-start;
   }
+
   &__link {
     display: flex;
     flex-wrap: nowrap;
@@ -80,9 +82,11 @@ $md3: 767.98;
     padding: 24px 20px;
     text-decoration: none;
     color: #fff;
+
     &:hover {
       color: #c4c4c4;
     }
+
     &.active {
       background: #1E88E5;
     }
@@ -95,9 +99,9 @@ $md3: 767.98;
 .gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2.2rem;
   margin: 102px 0 0;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   &__item {
     margin: 15px 0 0;
@@ -126,10 +130,28 @@ $md3: 767.98;
     width: 40px;
     height: 36px;
     background: url("https://i.ibb.co/HP75T77/Vector-1.png");
+
     &.active {
       background: url("https://i.ibb.co/VtrQm8X/Vector.png");
     }
+
+    &:hover {
+      background: url("https://i.ibb.co/VtrQm8X/Vector.png");
+    }
+
+    &:active {
+      background: url("https://i.ibb.co/VtrQm8X/Vector.png");
+      opacity: .4;
+    }
   }
+}
+
+.gallery__item:hover .hover-block {
+  display: block;
+}
+
+.gallery__item:hover .gallery__btn {
+  display: block;
 }
 
 .hover-block {
@@ -143,11 +165,4 @@ $md3: 767.98;
 
 }
 
-.gallery__item:hover .hover-block {
-  display: block;
-}
-
-.gallery__item:hover .gallery__btn {
-  display: block;
-}
 

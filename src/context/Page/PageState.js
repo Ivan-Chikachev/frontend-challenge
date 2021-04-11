@@ -31,8 +31,9 @@ export const PageState = (props) => {
             dispatch(getCatsState(response.data));
 
         }).finally(()=> {
-            dispatch(updateFetching(false))
+            setFetching(false)
         });
+        // Получаем данные и останавливаем подгруз данных
 
     }
     return (
