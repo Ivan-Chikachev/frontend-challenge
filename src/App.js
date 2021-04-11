@@ -15,8 +15,8 @@ function App() {
                         <Navbar/>
                         <div>
                             <Switch>
-                                <Route path={'/'} exact component={Page}/>
-                                <Route path={'/favorite'} exact component={Favorite}/>
+                                <Route path={'frontend-challenge/'} exact component={Page}/>
+                                <Route path={'frontend-challenge/favorite'} exact component={Favorite}/>
                             </Switch>
                         </div>
                     </BrowserRouter>

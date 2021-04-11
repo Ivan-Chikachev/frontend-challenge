@@ -28,7 +28,7 @@ export default () => {
             setFetching(true)
         }
     }
-    console.log('ren')
+
     return (
         <div className="container">
             <div className="gallery">

@@ -21,10 +21,6 @@ export default () => {
     }, [state.fetching])
 
 
-    useEffect(() => {
-
-    }, [state.totalCount])
-
     const scrollHandler = e => {
         if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight)
             < 100 && state.favoriteCats.length < state.totalCount) {
